@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Password Generator</h1>
+      </header>
+      <div class="card">
+        <div class="card-header">
+          <h2>Generate a Password</h2>
+        </div>
+        <form id="pw-reqs">
+            <p>Password Requirements:</p>
+            <ul>
+                <li><input type="checkbox" id="lowercase"><label for="lowercase">Lowercase Letter</label></li>
+                <li><input type="checkbox" id="uppercase"><label for="uppercase">Uppercase Letter</label></li>
+                <li><input type="checkbox" id="numeric"><label for="numeric">Number</label></li>
+                <li><input type="checkbox" id="special"><label for="special">Special Character</label></li>
+            </ul>
+        </form>
+        <form id="pw-length">
+            <p>Password Length:</p>
+            <input type="radio" name="length" id="fixed" value="fixed" checked>
+            <label for="fixed">Fixed Size</label>
+            <input type="radio" name="length" id="range" value="range">
+            <label for="range">Range</label>
+            <div class="fixed-hidden" >
+                <p>Size of Password:</p>
+                <p>(Minimum is 8)</p>
+                <p>(Maximum is 128)</p>
+                <label for="fixed-size">Size:</label>
+                <input type="number" name=fixed-size" id="size">
+            </div>
+            <div class="range-hidden">
+                <p>Range of Password Size:</p>
+                <p>(Minimum is 8)</p>
+                <p>(Maximum is 128)</p>
+                <label for="size-min">Min Size: </label>
+                <input type="number" name="size-min" id="size-min">
+                <label for="size-min">Max Size: </label>
+                <input type="number" name="size-max" id="size-max">
+            </div>
+        </form>
+        <form id="pw-excludes">
+            <p>Forbidden Characters:</p>
+            <input type="text" name="forbidden" id="forbidden">
+        </form>
+        <div class="card-body">
+          <textarea
+            readonly
+            id="password"
+            placeholder="Your Secure Password"
+            aria-label="Generated Password"
+          ></textarea>
+        </div>
+        <div class="card-footer">
+          <button id="generate" class="btn">Generate Password</button>
+        </div>
+      </div>
+    </div>
+    <script src="./assets/js/password-gen.js"></script>
+  </body>
+</html>
