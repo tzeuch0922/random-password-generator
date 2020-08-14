@@ -1,7 +1,7 @@
 # Random Password Generator
 A website that uses javascript to produce a password that meets the users requirements for a website. 
 
-The first set of options include special characters, numbers, lowercase characters, and uppercase characters. These options ensure that at least one of these characters get placed in the password. 
+The first set of options include special characters, numbers, lowercase characters, and uppercase characters. These options ensure that the password is only made up of the character types checked. 
 
 There is also a password length function that allows you to pick a fixed password size or a password range that will randomize the size of the password within given parameters.
 
