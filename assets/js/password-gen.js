@@ -46,30 +46,22 @@ function generatePassword()
         return "";
     }
 
-    // Produce required characters
+    // Setup characters set for checked boxes
     var all = '';
     if(document.getElementById("lowercase").checked)
     {
-        // characters += lower.charAt(Math.floor(Math.random()*lower.length));
-        // console.log("lowercase checked");
         all += lower;
     }
     if(document.getElementById("uppercase").checked)
     {
-        // characters += upper.charAt(Math.floor(Math.random()*upper.length));
-        // console.log("uppercase checked");
         all += upper;
     }
     if(document.getElementById("numeric").checked)
     {
-        // characters += number.charAt(Math.floor(Math.random()*number.length));
-        // console.log("number checked");
         all += number;
     }
     if(document.getElementById("special").checked)
     {
-        // characters += special.charAt(Math.floor(Math.random()*special.length));
-        // console.log("special checked");
         all += special;
     }
     if(all === '')
@@ -77,28 +69,15 @@ function generatePassword()
         window.alert("Need to check at least one box in the required characters section.");
         return "";
     }
-    console.log("Added required characters: " + characters);
+    console.log("Added required characters: " + password);
 
     // Produce remaining characters
-    var characters = '';
-    for(var i = characters.length; i < pwSize; i++)
+    var password = '';
+    for(var i = 0; i < pwSize; i++)
     {
-        characters += all.charAt(Math.floor(Math.random()*all.length));
+        password += all.charAt(Math.floor(Math.random()*all.length));
     }
-
-    /* Removed, due to no need anymore. */
-    // Randomize character order
-    // var password = '';
-    // console.log("pre-loop");
-    // while(characters.length > 0)
-    // {
-    //     var index = Math.floor(Math.random()*characters.length);
-    //     password += characters.charAt(index);
-    //     console.log("Added " + characters.charAt(index) + " to password.");
-    //     characters = characters.slice(0, index) + characters.slice(index + 1, characters.length);
-    // }
-    // console.log("post-loop");
-    return characters;
+    return password;
 }
 
 // Get references to the #generate element
