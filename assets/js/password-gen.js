@@ -6,18 +6,6 @@ function generatePassword()
     var upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     var number = '0123456789';
     var special = '!@#$%^&*';
-    var all = lower+upper+number+special;
-
-    // Remove forbidden characters, if they exist.
-    // forbidden = document.getElementById("forbidden").value;
-    // for(var i = 0; i < forbidden.length; i++)
-    // {
-    //     lower.replace(forbidden.charAt(i), '');
-    //     upper.replace(forbidden.charAt(i), '');
-    //     number.replace(forbidden.charAt(i), '');
-    //     special.replace(forbidden.charAt(i), '');
-    //     all.replace(forbidden.charAt(i), '');
-    // }
 
     // Get size of password to be produced.
     var pwSize;
@@ -59,48 +47,58 @@ function generatePassword()
     }
 
     // Produce required characters
-    var characters = '';
+    var all = '';
     if(document.getElementById("lowercase").checked)
     {
-        characters += lower.charAt(Math.floor(Math.random()*lower.length));
-        console.log("lowercase checked");
+        // characters += lower.charAt(Math.floor(Math.random()*lower.length));
+        // console.log("lowercase checked");
+        all += lower;
     }
     if(document.getElementById("uppercase").checked)
     {
-        characters += upper.charAt(Math.floor(Math.random()*upper.length));
-        console.log("uppercase checked");
+        // characters += upper.charAt(Math.floor(Math.random()*upper.length));
+        // console.log("uppercase checked");
+        all += upper;
     }
     if(document.getElementById("numeric").checked)
     {
-        characters += number.charAt(Math.floor(Math.random()*number.length));
-        console.log("number checked");
+        // characters += number.charAt(Math.floor(Math.random()*number.length));
+        // console.log("number checked");
+        all += number;
     }
     if(document.getElementById("special").checked)
     {
-        characters += special.charAt(Math.floor(Math.random()*special.length));
-        console.log("special checked");
+        // characters += special.charAt(Math.floor(Math.random()*special.length));
+        // console.log("special checked");
+        all += special;
+    }
+    if(all === '')
+    {
+        window.alert("Need to check at least one box in the required characters section.");
+        return "";
     }
     console.log("Added required characters: " + characters);
 
     // Produce remaining characters
+    var characters = '';
     for(var i = characters.length; i < pwSize; i++)
     {
         characters += all.charAt(Math.floor(Math.random()*all.length));
     }
-    console.log("Added remaining characters: " + characters);
 
+    /* Removed, due to no need anymore. */
     // Randomize character order
-    var password = '';
-    console.log("pre-loop");
-    while(characters.length > 0)
-    {
-        var index = Math.floor(Math.random()*characters.length);
-        password += characters.charAt(index);
-        console.log("Added " + characters.charAt(index) + " to password.");
-        characters = characters.slice(0, index) + characters.slice(index + 1, characters.length);
-    }
-    console.log("post-loop");
-    return password;
+    // var password = '';
+    // console.log("pre-loop");
+    // while(characters.length > 0)
+    // {
+    //     var index = Math.floor(Math.random()*characters.length);
+    //     password += characters.charAt(index);
+    //     console.log("Added " + characters.charAt(index) + " to password.");
+    //     characters = characters.slice(0, index) + characters.slice(index + 1, characters.length);
+    // }
+    // console.log("post-loop");
+    return characters;
 }
 
 // Get references to the #generate element
